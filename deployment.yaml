@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: new-deployment
+        labels:
+                app: naga
+
+spec:
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: naga
+
+        template:
+                metadata:
+                        name: newapp
+                        labels:
+                                app: naga
+
+                spec:
+                        containers:
+                        -       name: naga-container
+                                image: nagamlak/virtual-folio:1.1
+                                ports:
+                                - containerPort: 80
